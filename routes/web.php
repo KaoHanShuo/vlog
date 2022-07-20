@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//帶參數
+// Route::get('/{id}', function ($id) {
+//     return $id;
+// });
+
+//傳入controller
+//Route::get('/about',[WelcomeController::class,'about']);
+
+Route::resource('welcome', WelcomeController::class);
+Route::resource('welcome.comments', WelcomeController::class)->shallow();
